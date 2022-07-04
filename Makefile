@@ -15,7 +15,7 @@ all: build/$(TARGET)
 
 build/$(TARGET): src/fzf.c src/fzf.h
 	$(MKD) build
-	$(CC) -O3 $(CFLAGS) -shared src/fzf.c -o build/$(TARGET)
+	$(CC) -O3 $(CFLAGS) -shared src/fzf.c -o build/$(TARGET) -target arm64-apple-macos11
 
 build/test: build/$(TARGET) test/test.c
 	$(CC) -Og -ggdb3 $(CFLAGS) test/test.c -o build/test -I./src -L./build -lfzf -lexaminer
